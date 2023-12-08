@@ -1,6 +1,7 @@
 package com.example.server.service
 
-import com.example.grpc.proto.UserBean
+import com.example.grpc.proto.Department
+import com.example.grpc.proto.User
 import com.example.grpc.proto.UserServiceGrpc
 import io.grpc.stub.StreamObserver
 import net.devh.boot.grpc.server.service.GrpcService
@@ -11,9 +12,9 @@ import net.devh.boot.grpc.server.service.GrpcService
  */
 @GrpcService
 class UserService : UserServiceGrpc.UserServiceImplBase() {
-    override fun getUser(request: UserBean.User?, responseObserver: StreamObserver<UserBean.User>?) {
+    override fun getUser(request: Department?, responseObserver: StreamObserver<User>?) {
         println(request)
-        val user = UserBean.User.newBuilder()
+        val user = User.newBuilder()
             .setName("jw")
             .build()
         responseObserver?.onNext(user)

@@ -1,11 +1,20 @@
 syntax = "proto3";
 option java_package = "com.example.grpc.proto";
-option java_outer_classname = "UserBean";
+option java_multiple_files = true;
 
 message User{
   string name = 1;
 }
 
-service UserService{
-  rpc getUser(User) returns (User);
+message Department{
+  string name = 1;
 }
+
+service UserService{
+  rpc getUser(Department) returns (User);
+}
+
+service DepartmentService{
+  rpc getDepartment(stream User) returns (stream Department);
+}
+
