@@ -1,0 +1,11 @@
+syntax = "proto3";
+option java_package = "com.example.grpc.proto";
+option java_outer_classname = "UserBean";
+
+message User{
+  string name = 1;
+}
+
+service UserService{
+  rpc getUser(User) returns (User);
+}
