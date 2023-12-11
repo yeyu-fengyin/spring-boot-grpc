@@ -29,7 +29,7 @@ class GrpcClientUser {
         )
         println(user?.name)
 
-        var value = object : StreamObserver<Department> {
+        val value = object : StreamObserver<Department> {
 
             override fun onNext(p0: Department?) {
                 println(p0)
