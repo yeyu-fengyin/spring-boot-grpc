@@ -23,6 +23,9 @@ class DepartmentService : DepartmentServiceGrpc.DepartmentServiceImplBase() {
                             .build()
                     )
                 }
+                if (value?.name == "stop") {
+                    responseObserver?.onCompleted()
+                }
             }
 
             override fun onError(t: Throwable?) {

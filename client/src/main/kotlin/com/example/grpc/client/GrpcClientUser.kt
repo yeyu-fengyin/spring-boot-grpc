@@ -52,6 +52,11 @@ class GrpcClientUser {
                     .build()
             )
         }
+        department.onNext(
+            com.example.grpc.proto.User.newBuilder()
+                .setName("stop")
+                .build()
+        )
         department.onCompleted()
     }
 }
